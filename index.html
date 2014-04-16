@@ -16,12 +16,11 @@
 <title>Facebook Lesson 18</title>
 </head>
 
-<body>
+<body ng-app="apper">
 
 <h1>The <strong>facebook</strong> Friend Machine</h1>
 
-<div class="friends">
-
+<div class="friends" ng-controller="FriendController">
 
 <form class="form-inline searchForm" role="form">
   <div class="form-group">
@@ -45,7 +44,22 @@
     </select>
   </div>
 </form>
-
+{{friends}}
+  <ul ng-repeat="friend in friends">
+        <li class='friend'>
+       <img class="profile-pic" ng-src='{{friend.pic_square}}'>
+      <h3>{{friend.name}}</h3>
+      <div class="location">
+        Location: {{friend.current_location.name}} {{friend.current_location.country}}
+      </div>      
+      <div class="status">
+        {{friend.status.message}} <span class="hashtag">#ihateprovo</span>
+      </div>      
+      <div class="num-friends">
+        Friends: {{friend.friend_count}}
+      </div>
+    </li>
+  </ul>
   <ul>
     <li class='friend'>
        <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
